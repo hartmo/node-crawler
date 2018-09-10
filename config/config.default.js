@@ -41,5 +41,24 @@ module.exports = app => {
   //     }
   //   }
   // };
+  exports.mysql = {
+    // database configuration
+    client: {
+      // host
+      host: 'localhost',
+      // port
+      port: '3306',
+      // username
+      user: 'root',
+      // password
+      password: 'admin520',
+      // database
+      database: 'crawler'
+    },
+    // load into app, default is open
+    app: true,
+    // load into agent, default is close
+    agent: false
+  };
   return exports;
 };

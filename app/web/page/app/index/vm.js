@@ -1,3 +1,4 @@
+const axios = require('axios');
 export default {
   name: 'index',
   mounted() {
@@ -14,6 +15,21 @@ export default {
   methods: {
     init() {
       this.$socket.emit('chat', '111111111111');
+
+      // Make a request for a user with a given ID
+      axios
+        .get('/app/book')
+        .then(function(response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function() {
+          // always executed
+        });
     }
   },
   sockets: {
