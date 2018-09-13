@@ -1,6 +1,7 @@
 
 module.exports = app => {
-  app.get('/app/book', app.controller.app.book);
+  app.post('/app/addbook', app.controller.app.addBook);
   app.get('/*', app.controller.app.index);
-  app.io.of('/').route('chat', app.io.controllers.chat);
+  app.io.route('chat', app.io.controllers.chat.index);
+  app.io.route('search', app.io.controllers.search.index);
 };

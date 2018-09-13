@@ -6,7 +6,6 @@ module.exports = app => {
   // exports.siteFile = {
   //   '/favicon.ico': fs.readFileSync(path.join(app.baseDir, 'app/web/asset/images/favicon.ico'))
   // };
-
   exports.view = {
     cache: false
   };
@@ -28,19 +27,22 @@ module.exports = app => {
     prefix: '/public/',
     dir: path.join(app.baseDir, 'public')
   };
-
+  exports.security = {
+    csrf: false,
+    ctoken: false,
+  };
   exports.keys = '123456';
 
   exports.middleware = ['access'];
 
-  // exports.io = {
-  //   namespace: {
-  //     '/': {
-  //       connectionMiddleware: ['auth'],
-  //       packetMiddleware: ['filter']
-  //     }
-  //   }
-  // };
+  exports.io = {
+    namespace: {
+      '/': {
+        connectionMiddleware: ['auth'],
+        packetMiddleware: ['filter']
+      }
+    }
+  };
   exports.mysql = {
     // database configuration
     client: {

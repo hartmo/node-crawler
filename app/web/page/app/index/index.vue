@@ -1,6 +1,10 @@
 <template>
   <div>
-    {{msg}}
+    <div class="input">
+      <span class="title">地址</span>
+      <input type="text" v-model="search" placeholder="书本url">
+      <span class="btn" @click="searchFun">开始</span>
+    </div>
   </div>
 </template>
 

@@ -1,36 +1,19 @@
 const axios = require('axios');
 export default {
   name: 'index',
-  mounted() {
-    this.init();
-  },
+  mounted() {},
   watch: {},
   data() {
     return {
-      msg: '123'
+      search: 'http://www.biqujia.com/book/6/6750/',
     };
   },
   components: {},
   computed: {},
   methods: {
-    init() {
-      this.$socket.emit('chat', '111111111111');
-
-      // Make a request for a user with a given ID
-      axios
-        .get('/app/book')
-        .then(function(response) {
-          // handle success
-          console.log(response);
-        })
-        .catch(function(error) {
-          // handle error
-          console.log(error);
-        })
-        .then(function() {
-          // always executed
-        });
-    }
+    searchFun() {
+      this.$socket.emit('search', this.search);
+    },
   },
   sockets: {
     connect() {
@@ -38,6 +21,9 @@ export default {
     },
     res(val) {
       console.log('接收到服务端消息', val);
-    }
-  }
+    },
+    searchResult(val) {
+      console.log('搜索结果：', val);
+    },
+  },
 };
