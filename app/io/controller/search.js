@@ -14,19 +14,28 @@ module.exports = (app) => {
       // 获取书本内容
       const html = iconv.decode(result.res.data, 'GBK');
       const $ = cheerio.load(html, { decodeEntities: false });
-      ctx.socket.emit('searchResult', `搜索地址是：${bookurl}`);
       await ctx.service.biqu
         .book($)
         .then((res) => {
-          ctx.socket.emit('searchResult', res);
-          ctx.socket.emit('searchResult', `${searchController.chapter}`);
+          ctx.socket.emit('searchBook', res);
+          if (res.status > 0) {
+            this.chapter($, bookurl, res);
+          }
         })
         .catch((e) => {
           ctx.socket.emit('erro', `${e}`);
         });
     }
-    async chapter() {
-      return await false;
+    async chapter($, bookurl, book) {
+      const { ctx } = this;
+      await ctx.service.biqu
+        .addChapter($, bookurl, ctx, book)
+        .then((res) => {
+          ctx.socket.emit('erro', '收集完毕');
+        })
+        .catch((e) => {
+          ctx.socket.emit('erro', `${e}`);
+        });
     }
   }
   return searchController;

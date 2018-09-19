@@ -50,14 +50,14 @@ class BookService extends Service {
       const updateResult = await this.app.mysql.update('book', row);
       if (updateResult.affectedRows === 1) {
         return {
-          msg: '更新成功',
+          msg: '书本信息更新成功',
           status: 2,
           updatetime: book.updatetime,
           img: book.img,
           author: book.author,
           bookname: book.name,
           bookStatus: book.status,
-          bookId: updateResult.id,
+          bookId: mysqlBook.id,
         };
       } else {
         return {
@@ -68,7 +68,7 @@ class BookService extends Service {
           author: book.author,
           bookname: book.name,
           bookStatus: book.status,
-          bookId: updateResult.id,
+          bookId: mysqlBook.id,
         };
       }
     }

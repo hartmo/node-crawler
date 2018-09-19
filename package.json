@@ -24,7 +24,7 @@
     "egg-socket.io": "^4.1.1",
     "egg-validate": "^1.0.0",
     "egg-view-vue-ssr": "^3.0.2",
-    "element-ui": "^2.0.8",
+    "element-ui": "^2.4.6",
     "extend": "~3.0.0",
     "iconv-lite": "^0.4.24",
     "lodash": "^4.17.4",
