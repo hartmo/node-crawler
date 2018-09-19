@@ -29,7 +29,7 @@ module.exports = app => {
   };
   exports.security = {
     csrf: false,
-    ctoken: false,
+    ctoken: false
   };
   exports.keys = '123456';
 
@@ -43,24 +43,14 @@ module.exports = app => {
       }
     }
   };
-  exports.mysql = {
-    // database configuration
-    client: {
-      // host
-      host: 'localhost',
-      // port
-      port: '3306',
-      // username
-      user: 'root',
-      // password
-      password: 'admin520',
-      // database
-      database: 'crawler'
-    },
-    // load into app, default is open
-    app: true,
-    // load into agent, default is close
-    agent: false
+  exports.sequelize = {
+    // egg-sequelize 配置
+    dialect: 'mysql', // db type
+    database: 'crawler',
+    host: 'localhost',
+    port: '3306',
+    username: 'root',
+    password: 'admin520'
   };
   return exports;
 };

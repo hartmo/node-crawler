@@ -2,7 +2,12 @@
   "extends": "eslint-config-egg",
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
     "arrow-parens": "off",
