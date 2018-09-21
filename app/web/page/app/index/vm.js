@@ -1,11 +1,12 @@
-const axios = require('axios');
 export default {
   name: 'index',
-  mounted() {},
+  mounted() {
+    this.indexDate = this.$router.options.routes;
+  },
   watch: {},
   data() {
     return {
-      indexDate: [{ name: '首页', href: '/' }]
+      indexDate: []
     };
   },
   components: {},

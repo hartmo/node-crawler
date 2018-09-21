@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="value"
+    <el-table :data="tableArr"
               style="width: 100%">
       <slot></slot>
     </el-table>

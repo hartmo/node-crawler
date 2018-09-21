@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div>
-      <m-table v-model="indexDate">
+    <m-table v-model="indexDate">
         <el-table-column prop="name"
                          label="路由">
           <template slot-scope="scope">
-            <a :href="scope.row.href">{{scope.row.name}}</a>
+            <a :href="scope.row.path">{{scope.row.name}}</a>
           </template>
         </el-table-column>
-      </m-table>
-    </div>
+    </m-table>
   </div>
 </template>
 
