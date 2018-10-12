@@ -5,6 +5,10 @@ module.exports = (app) => {
       const message = this.ctx.args[0];
       await this.ctx.socket.emit('res', '链接成功');
     }
+    async search() {
+      const search = this.ctx.args[0];
+      await this.ctx.socket.emit('searchSuccess', '搜索成功' + search);
+    }
   }
   return Controller;
 };
