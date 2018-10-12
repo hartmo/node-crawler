@@ -1,5 +1,10 @@
-
 module.exports = app => {
   app.get('/*', app.controller.app.index);
-  app.io.route('chat', app.io.controllers.chat.index);
+  const keys = Object.keys(app.io.controllers);
+  keys.forEach(res => {
+    const Objectkeys = Object.keys(app.io.controllers[res]);
+    Objectkeys.forEach(ret => {
+      app.io.route(ret, app.io.controllers[res][ret]);
+    });
+  });
 };
