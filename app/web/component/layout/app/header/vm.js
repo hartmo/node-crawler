@@ -1,16 +1,17 @@
-const axios = require('axios');
 export default {
-  name: 'index',
+  name: 'momoheader',
   mounted() {},
   watch: {},
   data() {
-    return {
-    };
+    return {};
   },
   components: {},
   computed: {
     indexDate() {
       return this.$router.options.routes;
+    },
+    selectedMenu() {
+      return window.location.pathname.toLowerCase().replace(/\/$/, '') || '/';
     }
   },
   methods: {},
@@ -18,17 +19,17 @@ export default {
     connect() {
       this.$message({
         message: '链接成功',
-        type: 'success',
+        type: 'success'
       });
     },
     res(val) {
       this.$message({
         message: val,
-        type: 'success',
+        type: 'success'
       });
     },
     erro(val) {
       this.$message(val);
-    },
-  },
+    }
+  }
 };

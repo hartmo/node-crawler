@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 .page-container{
-  width: 1140px;
-  padding: 0 30px;
-  margin: 36 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .page-component {
   padding-bottom: 95px;

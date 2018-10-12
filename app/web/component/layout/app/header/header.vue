@@ -6,9 +6,9 @@
            class="router-link-active">momo</a>
       </h1>
       <ul class="nav">
-        <li class="nav-item">
-          <a href="/"
-             :class="{'active' : selectedMenu === '/'}">首页</a>
+        <li class="nav-item" v-for="(item,index) in indexDate" :key="index">
+          <a :href="item.path"
+             :class="{'active' : selectedMenu === item.path}">{{item.name}}</a>
         </li>
       </ul>
     </div>
@@ -18,17 +18,6 @@
   @import "./header.css";
 </style>
 <script type="text/babel">
-  export default{
-    data(){
-      return {
-        selectedMenu : '/app'
-      }
-    },
-    computed:{
-
-    },
-    mounted(){
-      this.selectedMenu = window.location.pathname.toLowerCase().replace(/\/$/,'');
-    }
-  }
+  import vm from './vm';
+  export default vm;
 </script>
