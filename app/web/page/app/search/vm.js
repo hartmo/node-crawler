@@ -12,24 +12,25 @@ export default {
   computed: {},
   methods: {
     search() {
-      console.log(this.searchUrl);
+      this.$socket.emit('search', this.searchUrl);
     }
   },
   sockets: {
-    connect() {
-      this.$message({
-        message: '链接成功',
-        type: 'success',
-      });
+    searchSuccess(msg) {
+      console.log(msg);
+      // this.$message({
+      //   message: msg,
+      //   type: 'success',
+      // });
     },
-    res(val) {
-      this.$message({
-        message: val,
-        type: 'success',
-      });
-    },
-    erro(val) {
-      this.$message(val);
-    },
+    // res(val) {
+    //   this.$message({
+    //     message: val,
+    //     type: 'success',
+    //   });
+    // },
+    // erro(val) {
+    //   this.$message(val);
+    // },
   },
 };
