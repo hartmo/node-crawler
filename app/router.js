@@ -4,7 +4,7 @@ module.exports = app => {
   keys.forEach(res => {
     const Objectkeys = Object.keys(app.io.controllers[res]);
     Objectkeys.forEach(ret => {
-      app.io.route(ret, app.io.controllers[res][ret]);
+      app.io.route(res + '/' + ret, app.io.controllers[res][ret]);
     });
   });
 };

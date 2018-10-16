@@ -1,6 +1,56 @@
 @import "../sass/ximin.scss";
-.search{
-  width: 60%;
-  min-width: px2rem(720);
-  margin: px2rem(15) auto;
+.search {
+	width: 60%;
+	min-width: px2rem(720);
+	margin: px2rem(15) auto;
+}
+.search-warp {
+	.row-bg {
+		margin: px2rem(30);
+	}
+	.grid-content {
+		border-radius: px2rem(10);
+		min-height: px2rem(36);
+		text-align: center;
+		font-size: px2rem(28);
+		color: #fff;
+		background: #409eff;
+		padding: px2rem(20) 0;
+		.name {
+			padding-bottom: px2rem(30);
+		}
+	}
+	.el-progress__text{
+		color:#fff !important;
+	}
+}
+.dialog-card {
+	height: px2rem(1000);
+	overflow: auto;
+	h3 {
+		padding: px2rem(20) 0;
+		font-size: px2rem(30);
+	}
+	.success {
+		color: rgb(19, 146, 104);
+	}
+	.error {
+		color: #f00;
+	}
+	.item {
+    margin: px2rem(10);
+		padding: px2rem(20);
+    border-radius: px2rem(10);
+    width: 100%;
+	}
+	.item-success {
+		background-color: rgba(103, 194, 58, .1);
+		border-color: rgba(103, 194, 58, .2);
+		color: #67c23a;
+  }
+  .item-error {
+    background-color: hsla(0,87%,69%,.1);
+    border-color: hsla(0,87%,69%,.2);
+    color: #f56c6c;
+	}
 }
