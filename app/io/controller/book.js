@@ -18,9 +18,11 @@ module.exports = app => {
       try {
         await ctx.service.getHtml.index(search).then($ => {
           if (!$('meta[property="og:novel:book_name"]').attr('content')) {
-            ctx.socket.emit('error', '被屏蔽了呗');
+            const val = '被屏蔽了呗';
+            ctx.socket.emit('searchError', { val });
             return;
           }
+          console.log(1);
           const item = {
             name: $('meta[property="og:novel:book_name"]').attr('content'),
             author: $('meta[property="og:novel:author"]').attr('content'),
@@ -36,11 +38,11 @@ module.exports = app => {
               ctx.socket.emit('searchSuccess', res);
             })
             .catch(e => {
-              ctx.socket.emit('error', e);
+              ctx.socket.emit('searchError', e);
             });
         });
       } catch (e) {
-        ctx.socket.emit('error', e);
+        ctx.socket.emit('searchError', e);
       }
     }
     async queryBook($, item, MAXLIMIT) {

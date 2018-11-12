@@ -11,8 +11,18 @@ class getHtmlService extends Service {
    */
   async index(url, format) {
     const { ctx } = this;
-    const result = await ctx.curl(url, { timeout: 3000
-    });
+    const options = {
+      timeout: 3000,
+      agent: true,
+      headers: ctx.headers
+    };
+    options.headers.host = '115.46.84.60:8123';
+    options.headers.origin = 'https://115.46.84.60:8123';
+    // options.headers.referer = url;
+    options.headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3573.0 Safari/537.36';
+    console.log(1);
+    console.log(options);
+    const result = await ctx.curl(url, options);
     const html = iconv.decode(result.res.data, format || 'gbk');
     const $ = cheerio.load(html, { decodeEntities: false });
     return $;

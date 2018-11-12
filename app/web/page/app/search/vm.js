@@ -100,7 +100,7 @@ export default {
     search(val) {
       console.log(val);
     },
-    error(val) {
+    searchError(val) {
       this.searchLoading = false;
       console.log(val);
     }
